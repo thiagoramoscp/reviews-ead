@@ -1,7 +1,42 @@
-<h1>Hi,
-    <%= name %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('header'); %>
+    </header>
+    <main class="main">
+        <section class="search">
+            <h1>Avalie e Descubra Cursos Online</h1>
+            <div class="search-bar">
+                <input type="text" name="" id="">
+                <input type="button" value="">
+            </div>
+        </section>
+        <section class="courses">
+
+        </section>
+        <section class="providers">
+
+        </section>
+    </main>
+    <footer>
+        <%- include('footer'); %>
+    </footer>
+</body>
+
+</html>
+
+
+<h1>
+    Hi,
+    <!-- <%=  %> -->
 </h1>
 
-<form action="/logout?_method=DELETE" method="POST">
+<form action="/auth/logout?_method=DELETE" method="POST">
     <button type="submit">Log Out</button>
 </form>

@@ -1,7 +1,9 @@
 const express = require('express');
+const User = require('../models/users');
 const router = express.Router();
-
+const bcrypt = require('bcrypt');
 const passport = require('passport');
+
 
 
 function checkNotAuthenticated(req, res, next) {
@@ -13,7 +15,9 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 router.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs');
+    res.render('login.ejs', {
+        title: "Login"
+    });
 });
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
@@ -23,7 +27,9 @@ router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 router.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs');
+    res.render('register.ejs', {
+        title: "Register"
+    });
 });
 
 const users = [];
@@ -38,17 +44,14 @@ router.post('/register', checkNotAuthenticated, async(req, res) => {
             "password": hashedPassword
         };
         new User(user).save().then(() => {
-            res.redirect('/login');
+            res.redirect('/auth/login');
         }).catch((err) => {
             console.log("Erro ao registrar novo usuário na BD: " + err);
         });
 
-        //users.push(user);
-        //res.redirect('/login');
-        // res.status(201).render("login.ejs");
-    } catch {
-        res.redirect('/register');
-        // res.status(500).send();
+    } catch (err) {
+        console.log("catch!: " + err);
+        res.redirect('/auth/register');
     }
 });
 
@@ -69,7 +72,7 @@ router.post('/register', checkNotAuthenticated, async(req, res) => {
 // });
 router.delete('/logout', (req, res) => {
     req.logOut();
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 module.exports = router;

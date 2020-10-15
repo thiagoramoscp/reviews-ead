@@ -1,17 +1,34 @@
-<h1>Login</h1>
-<% if(messages.error) { %>
-    <%= messages.error %>
-        <% } %>
+<!DOCTYPE html>
+<html lang="en">
 
-            <p>Novo na Central dos Cursos? <a href="/register">Crie a sua conta!</a></p>
-            <form action="/login" method="post">
-                <div>
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div>
-                    <label for="password">Senha:</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <button type="submit">Entrar</button>
-            </form>
+<head>
+    <%- include('head'); %>
+</head>
+
+<body>
+    <%- include('header'); %>
+        <main class="main">
+            <h1>Login</h1>
+            <% if(messages.error) { %>
+                <%= messages.error %>
+                    <% } %>
+
+                        <p>Novo na Central dos Cursos? <a href="/auth/register">Crie a sua conta!</a></p>
+                        <form action="/auth/login" method="post">
+                            <div>
+                                <label for="email">E-mail:</label>
+                                <input type="email" name="email" id="email" required>
+                            </div>
+                            <div>
+                                <label for="password">Senha:</label>
+                                <input type="password" name="password" id="password" required>
+                            </div>
+                            <button type="submit">Entrar</button>
+                        </form>
+
+        </main>
+
+        <%- include('footer'); %>
+</body>
+
+</html>

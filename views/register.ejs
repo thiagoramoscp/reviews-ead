@@ -1,17 +1,33 @@
-<h1>Crie sua conta</h1>
-<p>Já tem conta? <a href="/login">Login</a></p>
-<form action="/register" method="post">
-    <div>
-        <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" required>
-    </div>
-    <div>
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email" required>
-    </div>
-    <div>
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required>
-    </div>
-    <button type="submit">Registrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head'); %>
+</head>
+
+<body>
+    <%- include('header'); %>
+        <main class="main">
+            <h1>Crie sua conta</h1>
+            <p>Já tem conta? <a href="/auth/login">Login</a></p>
+            <form action="/auth/register" method="post">
+                <div>
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </main>
+
+        <%- include('footer'); %>
+</body>
+
+</html>

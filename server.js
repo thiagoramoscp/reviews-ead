@@ -6,6 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const User = require('./models/users');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
@@ -22,20 +23,22 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     console.log("Database connection error:" + err)
 });
 
-//Database Schema and models
-const Schema = mongoose.Schema;
-const userSchema = new Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true }
-});
-const User = mongoose.model('User', userSchema);
 
 
 initializePassport(
     passport,
-    (email) => users.find(user => user.email === email),
-    (id) => users.find(user => user.id === id)
+    (email) => {
+        User.findOne({ email: email }, (err, user) => {
+            console.log(user);
+        });
+    },
+    (id) => {
+        User.findOne({ _id: id }, (err, user) => {
+            console.log(user);
+        });
+    },
+    // (email) => users.find(user => user.email === email),
+    // (id) => users.find(user => user.id === id)
 );
 
 // Configurations
@@ -60,15 +63,21 @@ function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        return res.redirect('/login');
+        return res.redirect('/auth/login');
     }
 }
+// public: static files and stylesheets
+app.use('/public', express.static('public'));
+
 // routes
 
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name });
+app.get('/', (req, res) => {
+    res.render('index.ejs', {
+        title: "EAD Reviews"
+    });
 });
 
+//route groups
 app.use('/auth', authentication);
 
 
