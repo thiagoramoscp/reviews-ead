@@ -1,11 +1,33 @@
 <div class="header">
-    <a href="/">
-        <p>EU ME EDUCO</p>
-    </a>
-    <a href="#">Cursos</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/register">Registrar</a>
-    <form action="/auth/logout?_method=DELETE" method="POST">
-        <button type="submit">Log Out</button>
-    </form>
+    <nav class="left-nav">
+        <ul>
+            <li>
+                <a href="#">Cursos</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="logo">
+        <a href="/">
+            <p>EU ME EDUCO</p>
+        </a>
+    </div>
+    <nav class="right-nav">
+        <ul>
+            <% if (isAuthenticated) { %>
+                <li>
+                    <form action="/auth/logout?_method=DELETE" method="POST">
+                        <button type="submit">Log Out</button>
+                    </form>
+                </li>
+                <% } else { %>
+                    <li>
+                        <a href="/auth/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/auth/register">Registrar</a>
+                    </li>
+                    <% } %>
+        </ul>
+    </nav>
+
 </div>

@@ -23,22 +23,21 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     console.log("Database connection error:" + err)
 });
 
+// retreiving data from DB for authentication
+async function getUserByEmail(email) {
+    const user = await User.findOne({ email: email }).exec();
+    return user;
+}
+async function getUserById(id) {
+    const user = await User.findOne({ _id: id }).exec();
+    return user;
+}
 
-
+//passport config
 initializePassport(
     passport,
-    (email) => {
-        User.findOne({ email: email }, (err, user) => {
-            console.log(user);
-        });
-    },
-    (id) => {
-        User.findOne({ _id: id }, (err, user) => {
-            console.log(user);
-        });
-    },
-    // (email) => users.find(user => user.email === email),
-    // (id) => users.find(user => user.id === id)
+    getUserByEmail,
+    getUserById
 );
 
 // Configurations
@@ -56,8 +55,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
+// to change POST to DELETE on logout form
 app.use(methodOverride('_method'));
+// to make authentication property available
+app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.isAuthenticated();
+    next();
+});
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

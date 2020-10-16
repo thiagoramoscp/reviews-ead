@@ -22,7 +22,7 @@ router.get('/login', checkNotAuthenticated, (req, res) => {
 
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/auth/login',
     failureFlash: true
 }))
 
@@ -31,8 +31,6 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
         title: "Register"
     });
 });
-
-const users = [];
 
 router.post('/register', checkNotAuthenticated, async(req, res) => {
     try {
@@ -55,21 +53,6 @@ router.post('/register', checkNotAuthenticated, async(req, res) => {
     }
 });
 
-// app.post('/login', async(req, res) => {
-//     const user = users.find(user => user.email === req.body.email);
-//     if (user === null) {
-//         return res.status(400).send('Cannot find user')
-//     }
-//     try {
-//         if (await bcrypt.compare(req.body.password, user.password)) {
-//             res.send("Success");
-//         } else {
-//             res.send("Not Allowed");
-//         }
-//     } catch {
-//         res.status(500).send();
-//     }
-// });
 router.delete('/logout', (req, res) => {
     req.logOut();
     res.redirect('/');
