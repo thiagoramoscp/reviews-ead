@@ -1,33 +1,42 @@
 <div class="header">
-    <nav class="left-nav">
-        <ul>
-            <li>
-                <a href="#">Cursos</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="logo">
-        <a href="/">
-            <p>EU ME EDUCO</p>
-        </a>
-    </div>
-    <nav class="right-nav">
-        <ul>
-            <% if (isAuthenticated) { %>
+    <nav class="left-nav-container">
+        <nav class="left-nav">
+            <ul>
                 <li>
-                    <form action="/auth/logout?_method=DELETE" method="POST">
-                        <button type="submit">Log Out</button>
-                    </form>
+                    <a class="nav-btns" href="#">Cursos</a>
                 </li>
-                <% } else { %>
-                    <li>
-                        <a href="/auth/login">Login</a>
-                    </li>
-                    <li>
-                        <a href="/auth/register">Registrar</a>
-                    </li>
-                    <% } %>
-        </ul>
+            </ul>
+        </nav>
     </nav>
+
+    <div class="logo-container">
+        <div class="logo">
+            <a href="/">
+                <p>EU ME EDUCO</p>
+            </a>
+        </div>
+    </div>
+
+    <nav class="right-nav-container">
+        <nav class="right-nav">
+            <ul>
+                <% if (isAuthenticated) { %>
+                    <li>
+                        <form action="/auth/logout?_method=DELETE" method="POST">
+                            <button class="logout-btn" type="submit">Log Out</button>
+                        </form>
+                    </li>
+                    <% } else { %>
+                        <li>
+                            <a class="nav-btns" href="/auth/login">Login</a>
+                        </li>
+                        <li>
+                            <a class="nav-btns" href="/auth/register">Registrar</a>
+                        </li>
+                        <% } %>
+            </ul>
+        </nav>
+    </nav>
+
 
 </div>
