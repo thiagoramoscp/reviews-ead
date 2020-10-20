@@ -12,7 +12,9 @@ body {
 
 :root {
     --light-gray: #FDFDFD;
-    --black-titles: #010101;
+    --black-font: #010101;
+    --dark-font: #333;
+    --light-font: #666;
 }
 
 body {
@@ -21,6 +23,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+/* HEADER */
 
 .header {
     height: 4.5rem;
@@ -79,13 +84,19 @@ body {
 
 .register-btn {}
 
-@media (min-width: 800px) {}
+@media (min-width: 764px) {}
 
 @media (min-width: 1024px) {}
+
+
+/* -- MAIN SECTION -- */
 
 .main {
     flex: 1 0 auto;
 }
+
+
+/* -- HOMEPAGE MAIN -- */
 
 .search {
     display: flex;
@@ -94,7 +105,7 @@ body {
 }
 
 .search-title {
-    color: var(--black-titles);
+    color: var(--black-font);
 }
 
 .search-bar {}
@@ -107,8 +118,53 @@ body {
 
 .search-bar {}
 
+
+/* -- LOGIN PAGE -- */
+
+.login-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+}
+
+.login-box {
+    padding: 2rem;
+    border-radius: 7px;
+    background-color: var(--light-gray);
+}
+
+
+/* -- REGISTER MAIN -- */
+
+.register-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+}
+
+.register-box {
+    padding: 2rem;
+    border-radius: 5px;
+    background-color: var(--light-gray);
+}
+
+
+/* FOOTER */
+
 .footer {
     padding: 1rem;
-    border: 1px solid #00f;
+    min-height: 100px;
     flex-shrink: 0;
+    border: 1px solid #EEE;
+    background-color: var(--light-gray);
+}
+
+.last-line {
+    color: var(--dark-font);
 }
