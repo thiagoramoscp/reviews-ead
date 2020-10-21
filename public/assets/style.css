@@ -76,7 +76,15 @@ body {
     padding: 0px 0.5rem;
 }
 
-.logout-btn {}
+.logout-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+}
 
 .courses-btn {}
 
@@ -119,40 +127,63 @@ body {
 .search-bar {}
 
 
-/* -- LOGIN PAGE -- */
+/* -- AUTHENTICATION PAGES -- */
 
-.login-section {
+.auth-labels {
+    display: block;
+}
+
+.login-section,
+.register-section {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #efefef;
 }
 
-.login-box {
+.login-box,
+.register-box {
     padding: 2rem;
     border-radius: 7px;
     background-color: var(--light-gray);
 }
 
+.login-box h1,
+.register-box h1 {
+    color: var(--black-font);
+}
+
+.login-box input,
+.register-box input {
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    padding: 0.8rem;
+    margin: 0.5rem 0px;
+    width: 320px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login-box button,
+.register-box button {
+    display: block;
+    margin: 1rem auto 0px auto;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    min-width: 100px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+/* -- LOGIN PAGE -- */
+
 
 /* -- REGISTER MAIN -- */
-
-.register-section {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #efefef;
-}
-
-.register-box {
-    padding: 2rem;
-    border-radius: 5px;
-    background-color: var(--light-gray);
-}
 
 
 /* FOOTER */

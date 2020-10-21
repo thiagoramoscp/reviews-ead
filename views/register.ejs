@@ -11,23 +11,23 @@
             <section class="register-section">
                 <div class="register-box">
                     <h1>Crie sua conta</h1>
-                    <p>Já tem conta? <a href="/auth/login">Login</a></p>
                     <form action="/auth/register" method="post">
                         <div>
-                            <label for="name">Nome:</label>
+                            <label class="auth-labels" for="name">Nome:</label>
                             <input type="text" name="name" id="name" required>
                         </div>
                         <div>
-                            <label for="email">E-mail:</label>
+                            <label class="auth-labels" for="email">E-mail:</label>
                             <input type="email" name="email" id="email" required>
                         </div>
                         <div>
-                            <label for="password">Senha:</label>
+                            <label class="auth-labels" for="password">Senha:</label>
                             <input type="password" name="password" id="password" required>
                         </div>
                         <button type="submit">Registrar</button>
                     </form>
                 </div>
+                <p>Já tem conta? <a href="/auth/login">Login</a></p>
             </section>
         </main>
 

@@ -15,20 +15,20 @@
                         <%= messages.error %>
                             <% } %>
 
-                                <p>Novo na Central dos Cursos? <a href="/auth/register">Crie a sua conta!</a></p>
                                 <form action="/auth/login" method="post">
                                     <div>
-                                        <label for="email">E-mail:</label>
+                                        <label class="auth-labels" for="email">E-mail:</label>
                                         <input type="email" name="email" id="email" required>
                                     </div>
                                     <div>
-                                        <label for="password">Senha:</label>
+                                        <label class="auth-labels" for="password">Senha:</label>
                                         <input type="password" name="password" id="password" required>
                                     </div>
                                     <button type="submit">Entrar</button>
                                 </form>
 
                 </div>
+                <p>Novo na Central dos Cursos? <a href="/auth/register">Crie a sua conta!</a></p>
             </section>
         </main>
 
