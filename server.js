@@ -58,9 +58,12 @@ app.use(passport.session());
 app.use(flash());
 // to change POST to DELETE on logout form
 app.use(methodOverride('_method'));
-// to make authentication property available
+
 app.use((req, res, next) => {
+    // to make authentication property available
     res.locals.isAuthenticated = req.isAuthenticated();
+    //to make req.flash available - not working
+    // res.locals.flashMessages = req.flash();
     next();
 });
 

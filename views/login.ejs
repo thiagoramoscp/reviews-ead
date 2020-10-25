@@ -12,9 +12,10 @@
                 <div class="login-box">
                     <h1>Login</h1>
                     <% if(messages.error) { %>
-                        <%= messages.error %>
+                        <span><%= messages.error %></span>
+                        <% } else if (message) {%>
+                            <span><%= message %></span>
                             <% } %>
-
                                 <form action="/auth/login" method="post">
                                     <div>
                                         <label class="auth-labels" for="email">E-mail:</label>

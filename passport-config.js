@@ -20,7 +20,8 @@ async function initialize(passport, getUserByEmail, getUserById) {
         }
     };
 
-    passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser));
+    passport.use('local-login', new LocalStrategy({ usernameField: 'email' }, authenticateUser));
+
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser((id, done) => {
         return done(null, getUserById(id))
