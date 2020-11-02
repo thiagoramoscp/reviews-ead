@@ -15,6 +15,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const initializePassport = require('./passport-config');
 const authentication = require('./routes/authentication');
+const adminAccess = require('./routes/admin-access');
 
 //connecting to database
 mongoose.Promise = global.Promise;
@@ -85,8 +86,9 @@ app.get('/', (req, res) => {
     });
 });
 
+
 //route groups
 app.use('/auth', authentication);
-
+app.use('/admin', adminAccess);
 
 app.listen(process.env.PORT || 3000);

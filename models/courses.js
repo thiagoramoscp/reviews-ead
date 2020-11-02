@@ -6,21 +6,27 @@ const Schema = mongoose.Schema;
 const courseSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
-    paid: { type: Boolean, required: true },
+    isPaid: { type: Boolean, required: true },
+    price: { type: Number },
+    currency: { type: String },
     provider: { type: String, required: true },
+    fromUniversity: { type: Boolean, required: true },
     instructors: { type: Array },
-    certificate: { type: Boolean },
-    language: { type: String },
+    haveCertificate: { type: Boolean },
+    language: { type: String, required: true },
     taxonomy: {
         subject: { type: String, required: true },
         category: { type: String, required: true }
     },
-    userEvaluations: [{
-        user: userSchema,
+    review: {
         rating: { type: Number },
-        comment: { type: String },
-        date: { type: Date, default: Date.now }
-    }]
+        userEvaluations: [{
+            user: userSchema,
+            rating: { type: Number },
+            comment: { type: String },
+            date: { type: Date, default: Date.now }
+        }]
+    }
 });
 
 const Course = mongoose.model('Course', courseSchema);

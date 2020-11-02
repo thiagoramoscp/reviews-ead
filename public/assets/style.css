@@ -61,7 +61,6 @@ body {
 
 .nav-btns {
     text-decoration: none;
-    color: ;
 }
 
 .right-nav ul,
@@ -180,10 +179,53 @@ body {
 }
 
 
-/* -- LOGIN PAGE -- */
+/* -- COURSE REGISTRATION PAGE (It's repetitive, I know. Fixing it later.) -- */
 
+.registration-labels {
+    display: block;
+}
 
-/* -- REGISTER MAIN -- */
+.course-registration-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+}
+
+.course-registration-box {
+    padding: 2rem;
+    border-radius: 7px;
+    background-color: var(--light-gray);
+}
+
+.course-registration-box h1 {
+    color: var(--black-font);
+}
+
+.registration-input-fields {
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 520px;
+    max-width: 85vw;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.course-registration-box button {
+    display: block;
+    margin: 1rem auto 0px auto;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    min-width: 100px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
 
 
 /* FOOTER */
