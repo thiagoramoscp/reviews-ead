@@ -9,7 +9,7 @@ router.get('/course-register', (req, res) => {
     });
 });
 
-router.post('/course-register', async(req, res) => {
+router.post('/course-register', (req, res) => {
 
     try {
         const course = {
@@ -30,19 +30,18 @@ router.post('/course-register', async(req, res) => {
         };
         console.log(course);
 
-        // new Course(course).save().then(() => {
-        //     console.log('Curso Salvo!')
-        //     res.redirect('/admin/course-register');
-        // }).catch((err) => {
-        //     console.log("Erro ao registrar novo curso à BD: " + err);
-        // });
+        new Course(course).save().then(() => {
+            console.log('Curso Salvo!')
+            res.redirect('/admin/course-register');
+        }).catch((err) => {
+            console.log("Erro ao registrar novo curso à BD: " + err);
+        });
 
     } catch (err) {
         console.log("Server error: " + err);
         res.redirect('/admin/course-register');
     }
 
-    res.redirect('/admin/course-register');
 });
 
 module.exports = router;
