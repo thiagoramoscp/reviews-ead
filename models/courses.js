@@ -11,12 +11,13 @@ const courseSchema = new Schema({
     currency: { type: String },
     provider: { type: String, required: true },
     fromUniversity: { type: Boolean, required: true },
+    educationalInstitution: { type: String },
     instructors: { type: Array },
     haveCertificate: { type: Boolean },
     language: { type: String, required: true },
     taxonomy: {
         subject: { type: String, required: true },
-        category: { type: String, required: true }
+        category: { type: String }
     },
     review: {
         rating: { type: Number },

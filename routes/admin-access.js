@@ -20,6 +20,7 @@ router.post('/course-register', (req, res) => {
             currency: req.body.currency,
             provider: req.body.provider,
             fromUniversity: !!req.body.fromUniversity,
+            educationalInstitution: req.body.educationalInstitution,
             instructors: req.body.instructors.split(',').map(item => item.trim()),
             haveCertificate: !!req.body.haveCertificate,
             language: req.body.language,

@@ -18,7 +18,7 @@
                         </div>
                         <div>
                             <label class="registration-labels" for="description">Descrição:</label>
-                            <input class="registration-input-fields" type="text" name="description" id="description" required>
+                            <textarea class="registration-input-fields" cols="" rows="6" name="description" id="description" required></textarea>
                         </div>
                         <div>
                             <label class="registration-labels" for="provider">Provedor/Plataforma:</label>
@@ -29,16 +29,20 @@
                             <input class="registration-input-fields" type="text" name="instructors" id="instructors" placeholder="Se houver mais de um, separá-los por vírgula. ex: João,Maria,José" required>
                         </div>
                         <label for="isPaid"><input name="isPaid" id="isPaid" type="checkbox" value="isPaid" class="">É pago?</label><br>
-                        <label for="fromUniversity"><input name="fromUniversity" id="fromUniversity" type="checkbox" value="fromUniversity" class="">É de uma faculdade/universidade?</label><br>
-                        <label for="haveCertificate"><input name="haveCertificate" id="haveCertificate" type="checkbox" value="haveCertificate" class="">Possui certificado?</label><br>
                         <div>
                             <label class="registration-labels" for="price">Preço:</label>
-                            <input class="registration-input-fields" type="number" name="price" id="price" min="0" required>
+                            <input class="registration-input-fields" type="number" name="price" id="price" min="0" step=".01">
                         </div>
                         <div>
                             <label class="registration-labels" for="currency">Moeda (ex: BRL):</label>
-                            <input class="registration-input-fields" type="text" name="currency" id="currency" required>
+                            <input class="registration-input-fields" type="text" name="currency" id="currency">
                         </div>
+                        <label for="fromUniversity"><input name="fromUniversity" id="fromUniversity" type="checkbox" value="fromUniversity" class="">É de uma faculdade/universidade?</label><br>
+                        <div>
+                            <label class="registration-labels" for="educationalInstitution">Instituição de Ensino:</label>
+                            <input class="registration-input-fields" type="text" name="educationalInstitution" id="educationalInstitution">
+                        </div>
+                        <label for="haveCertificate"><input name="haveCertificate" id="haveCertificate" type="checkbox" value="haveCertificate" class="">Possui certificado?</label><br>
                         <div>
                             <label class="registration-labels" for="language">Língua (ex: pt-br):</label>
                             <input class="registration-input-fields" type="text" name="language" id="language" required>
@@ -49,7 +53,7 @@
                         </div>
                         <div>
                             <label class="registration-labels" for="category">Categoria:</label>
-                            <input class="registration-input-fields" type="text" name="category" id="category" required>
+                            <input class="registration-input-fields" type="text" name="category" id="category">
                         </div>
                         <button type="submit">Registrar Curso</button>
                     </form>
