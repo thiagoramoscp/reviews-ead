@@ -32,7 +32,7 @@ router.post('/course-register', (req, res) => {
         console.log(course);
 
         new Course(course).save().then(() => {
-            console.log('Curso Salvo!')
+            console.log('Curso Salvo!');
             res.redirect('/admin/course-register');
         }).catch((err) => {
             console.log("Erro ao registrar novo curso à BD: " + err);
