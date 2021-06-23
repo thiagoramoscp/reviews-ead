@@ -6,14 +6,18 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+
 const { User, userSchema } = require("./models/users");
 const Course = require("./models/courses");
+
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
+
 const initializePassport = require("./passport-config");
+
 const authentication = require("./routes/authentication");
 const adminAccess = require("./routes/admin-access");
 
@@ -45,12 +49,14 @@ async function getUserById(id) {
 initializePassport(passport, getUserByEmail, getUserById);
 
 // Configurations
+
 // body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // ejs
 app.set("view-engine", "ejs");
-// session
+// session.
+// no futuro os dados das sessions dos usuários aumentam e precisarão de uma DB. Usar connect-mongo (a MongoDB-based session store) para conectar à mesma DB atual, usada p/ o resto das coisas.
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -72,6 +78,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//?
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
